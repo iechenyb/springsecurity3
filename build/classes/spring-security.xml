@@ -22,6 +22,7 @@
 	<!-- <intercept-url pattern="/*" access="hasRole('ROLE_USER')" /> -->
 	<!--访问/**资源的用户必须具有ROLE_USER的权限 -->
 	<intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
+	<intercept-url pattern="/index.jsp" access="hasRole('ROLE_USER')"/>
 	<!-- <intercept-url pattern="/any/*" access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')"/> -->
 	<!-- /j_spring_security_logout -->
 	<logout logout-success-url="/exit.html" logout-url="/login.jsp" 
