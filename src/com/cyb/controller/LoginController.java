@@ -1,4 +1,4 @@
-package com.lanyuan.controller;
+package com.cyb.controller;
 
 import java.util.List;
 
