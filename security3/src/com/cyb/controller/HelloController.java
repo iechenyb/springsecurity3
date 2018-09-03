@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-    @RequestMapping(value={"/welcome","/"},method=RequestMethod.GET)
+    @RequestMapping(value={"/welcome","/"},method=RequestMethod.POST)
     public String welcome(){
         return "index";
     }
     //@PreAuthorize("hasRole('ROLE_ADMIN')") 
-    @RequestMapping(value={"/callback","/"},method=RequestMethod.GET)
+    @RequestMapping(value={"/callback"},method=RequestMethod.POST)
     @ResponseBody
     public String get(){
         return "123456789";

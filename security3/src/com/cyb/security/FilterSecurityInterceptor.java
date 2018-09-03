@@ -29,6 +29,7 @@ implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("FilterSecurityInterceptor ...");
 		FilterInvocation fi = new FilterInvocation(request, response, chain);
 		invoke(fi);
 	}
@@ -58,6 +59,8 @@ implements Filter {
 		// 如果不为空，则把它放入上下文中：
 		// SecurityContextHolder.getContext().setAuthentication(runAs);
 		// 5、返回token
+		//FilterSecurityInterceptor.http-nio-8088-exec-8 Public object - authentication not attempted
+		System.out.println("进入拦截器FilterInvocation！！！！");
 		InterceptorStatusToken token = super.beforeInvocation(fi);
 		try {
 			fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
@@ -65,7 +68,6 @@ implements Filter {
 			super.afterInvocation(token, null);
 		}
 	}
-
 	public SecurityMetadataSource obtainSecurityMetadataSource() {
 		return this.securityMetadataSource;
 	}
